@@ -1,19 +1,19 @@
-const Button = ({title, icon, type, handleClick, hasBackground, href}) => {
+const Button = ({title, icon, type, handleClick, hasBackground, href, className}) => {
     const buttonStyle = hasBackground
-        ? 'bg-neutral-700 hover:bg-gray-400 text-white'
-        : 'bg-transparent text-black';
+      ? 'bg-white hover:bg-gray-400 text-black'
+      : 'bg-transparent text-white';
 
     return href ? (
         <a
             href={href}
-            className={`py-2 px-4 rounded-lg w-min flex items-center transition-all cursor-pointer justify-center ${buttonStyle}`}
+            className={`py-2 px-4 rounded-lg w-min flex items-center transition-all cursor-pointer justify-center ${className ?? ''} ${buttonStyle}`}
         >
             {icon && <span className="mr-2">{icon}</span>}
             <span className="whitespace-nowrap">{title}</span>
         </a>
     ) : (
         <button
-            className={`py-2 px-4 rounded-lg w-min flex items-center transition-all cursor-pointer justify-center ${buttonStyle}`}
+            className={`py-2 px-4 rounded-lg w-min flex items-center transition-all cursor-pointer justify-center ${className ?? ''} ${buttonStyle}`}
             type={type ?? 'button'}
             onClick={handleClick ?? null}
         >
