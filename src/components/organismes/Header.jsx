@@ -1,7 +1,22 @@
+import {useEffect, useState} from "react";
+
 const Header = () => {
+    const [scrollHeight, setScrollHeight] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollHeight(window.scrollY);
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
 
     return (
-        <header className={`w-full fixed top-0 z-50 transition-all duration-300 shadow-inner h-20`}>
+        <header className={`w-full fixed top-0 z-50 transition-all duration-300 shadow-inner ${scrollHeight > 50 ? 'h-16' : 'h-20'}`}>
             <div className="flex items-center p-0 h-full">
                 <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black to-transparent h-20" />
 

@@ -3,6 +3,7 @@ import ChipList from "./components/molecules/ChipList.jsx";
 import Button from "./components/atoms/Button.jsx";
 import {AiOutlineExport} from "react-icons/ai";
 import Layout from "./components/organismes/Layout.jsx";
+import MovieCardList from "./components/molecules/MovieCardList.jsx";
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
       <Button title={'click me'} icon={<AiOutlineExport/>} type={'submit'} handleClick={()=>{alert('coucou')}}/>
       <Button title={'google'} hasBackground href={'https://www.google.com'}/>
       <ChipList chips={categories}/>
+      <MovieCardList movies={movies}/>
     </Layout>
   )
 }
