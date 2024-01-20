@@ -1,113 +1,101 @@
-import Image from "next/image";
+import Chip from "@/components/atoms/Chip";
+import ChipList from "@/components/molecules/ChipList";
+import Button from "@/components/atoms/Button";
+import Layout from "@/components/organismes/Layout";
+import MovieCard from "@/components/molecules/MovieCard";
+import MovieCardList from "@/components/molecules/MovieCardList";
+import {AiOutlineExport} from "react-icons/ai";
 
 export default function Home() {
+  const categories = [
+    {name: 'Movie'},
+    {name: 'Series'},
+  ];
+
+  const movies = [
+    {
+      title: 'Reservoir Dogs',
+      poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/xi8Iu6qyTfyZVDVy60raIOYJJmk.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/jqFjgNnxpXIXWuPsyfqmcLXRo9p.jpg'
+    },
+    {
+      title: 'Supergirl',
+      poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/vqBsgL9nd2v04ZvCqPzwtckDdFD.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/jgb9xICHFX8wTGQ75js4uNbttQs.jpg'
+    },
+    {
+      title: 'The Super Mario Bros. Movie',
+      poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg'
+    },
+    {
+      title: 'Oppenheimer',
+      poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg'
+    },
+    {
+      title: 'Barbie',
+      poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/nHf61UzkfFno5X1ofIhugCPus2R.jpg'
+    },
+    {
+      title: 'Pulp Fiction',
+      poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg'
+    },
+    {
+      title: 'Chicken Run: Dawn of the Nugget',
+      poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/exNtEY8QUuQh9e23wSQjkPxKIU3.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/bmlkLCjrIWnnZzdAQ4uNPG9JFdj.jpg'
+    },
+    {
+      title: 'Wonka',
+      poster_path: 'https://media.themoviedb.org/t/p/w220_and_h330_face/qhb1qOilapbapxWQn9jtRCMwXJF.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/bmlkLCjrIWnnZzdAQ4uNPG9JFdj.jpg'
+    },
+    {
+
+      title: 'Leo',
+      poster_path: 'https://media.themoviedb.org/t/p/w220_and_h330_face/pD6sL4vntUOXHmuvJPPZAgvyfd9.jpg',
+      backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/auXrHU6O17n9Tz11SHReoorjrU6.jpg'
+    },
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <Layout>
+
+      <div className={'relative w-full h-[65dvh] rounded overflow-hidden shadow-lg flex mb-2 pb-4 max-sm:p-0 max-sm:flex-col'}>
+        <img
+          className={'shadow-inner-right rounded-lg h-full w-full max-sm:h-full object-cover grayscale-[10%]'}
+          src={'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/bmlkLCjrIWnnZzdAQ4uNPG9JFdj.jpg'}
+          alt={'Wonka backdrop'}
+        />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-1/3" />
+        <div className={'absolute w-full bottom-0 left-0 max-sm:px-6 max-sm:py-4 py-20 px-10 flex-grow flex flex-col justify-between'}>
+          <h1 className="text-6xl font-bold mb-2 max-sm:hidden">Cette semaine ne ratez pas!</h1>
+          <div className={'max-sm:flex-col'}>
+            <div className={'font-bold text-2xl mb-2'}>
+              Wonka
+            </div>
+            <div className={'mt-8'}>
+              <Button
+                title={'voir plus'}
+                className={'max-sm:!w-full !bg-blue-400 hover:!bg-blue-500'}
+                icon={<AiOutlineExport/>}/>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className={'w-full mt-2'}>
+        <h2 className={'text-2xl font-medium mt-4 ml-8'}>Films à la une</h2>
+        <MovieCardList movies={movies} />
+      </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <section className={'w-full mt-2'}>
+        <h2 className={'text-2xl font-medium mt-4 ml-8'}>Séries du moment</h2>
+        <MovieCardList movies={movies} />
+      </section>
+    </Layout>
   );
 }
