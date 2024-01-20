@@ -2,6 +2,7 @@ import Button from "@/components/atoms/Button";
 import Layout from "@/components/organismes/Layout";
 import MovieCardList from "@/components/molecules/MovieCardList";
 import {AiOutlineExport} from "react-icons/ai";
+import RandomMovie from "@/components/molecules/RandomMovie";
 
 export default async function Home() {
 
@@ -47,6 +48,8 @@ export default async function Home() {
         <h2 className={'text-2xl font-medium mt-4 ml-8'}>Films en tendance</h2>
         <MovieCardList movies={trendingMovies.results} />
       </section>
+
+      <RandomMovie/>
     </Layout>
   );
 }
