@@ -4,17 +4,12 @@ import Button from "@/components/atoms/Button";
 import {useState} from "react";
 import Modal from "@/components/organismes/Modal";
 import MoviePreview from "@/components/organismes/MoviePreview";
+import {randomMovieAction} from "@/serverActions/RandomMovieAction";
 
 export default function RandomMovie () {
 
-    const movie = {
-        id: 1,
-        title: 'Chicken Run: Dawn of the Nugget',
-        poster_path: 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/exNtEY8QUuQh9e23wSQjkPxKIU3.jpg',
-        backdrop_path: 'https://media.themoviedb.org/t/p/w533_and_h300_bestv2/bmlkLCjrIWnnZzdAQ4uNPG9JFdj.jpg'
-    };
-
     const [showModal, setShowModal] = useState(false);
+    let [randomMovie, setRandomMovie] = useState(null);
 
     const openModal = () => {
         setShowModal(true);
@@ -39,18 +34,27 @@ export default function RandomMovie () {
                         On a pensé à vous, voici un film que vous pourriez aimer
                     </p>
                 </div>
-
-                <Button
-                    handleClick={openModal}
-                    title="Contenu aléatoire"
-                    icon={<AiFillThunderbolt/>}
-                    hasBackground
-                    className={'z-10'}/>
+                <form
+                    action={
+                        async () => {
+                            randomMovie = await randomMovieAction();
+                            setRandomMovie(randomMovie);
+                            openModal();
+                        }
+                    }
+                >
+                    <Button
+                      type={'submit'}
+                      title="Contenu aléatoire"
+                      icon={<AiFillThunderbolt/>}
+                      hasBackground
+                      className={'z-10'}/>
+                </form>
             </section>
 
             {showModal && (
                 <Modal onClose={closeModal}>
-                    <MoviePreview backdrop_path={movie.backdrop_path} id={movie.id} title={movie.title} />
+                    <MoviePreview backdrop_path={randomMovie.backdrop_path} id={randomMovie.id} title={randomMovie.title} />
                 </Modal>
             )}
         </>
