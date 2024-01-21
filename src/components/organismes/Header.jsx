@@ -1,5 +1,7 @@
 "use client";
 import {useEffect, useState} from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
@@ -23,23 +25,23 @@ const Header = () => {
 
         <div className="absolute w-full">
           <div className="mx-auto flex justify-between items-center px-4 lg:px-8 h-full">
-            <a href="/">
-              <img
+            <Link href="/">
+              <Image
                 src="/logo.svg"
                 alt="Nextflix Logo"
                 width={'110'}
                 height={'40'}
               />
-            </a>
+            </Link>
             <div>
-              <a
-                href="https://github.com/tonrepo"
+              <Link
+                href="https://github.com/DregerTi/nextflix-fyc/tree/master"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
               >
                 Github
-              </a>
+              </Link>
             </div>
           </div>
         </div>

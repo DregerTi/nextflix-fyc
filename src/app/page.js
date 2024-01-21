@@ -3,6 +3,7 @@ import Layout from "@/components/organismes/Layout";
 import MovieCardList from "@/components/molecules/MovieCardList";
 import {AiOutlineExport} from "react-icons/ai";
 import RandomMovie from "@/components/molecules/RandomMovie";
+import Image from "next/image";
 
 export default async function Home() {
 
@@ -17,10 +18,12 @@ export default async function Home() {
     <Layout>
 
       <div className={'relative w-full h-[65dvh] rounded overflow-hidden shadow-lg flex mb-2 pb-4 max-sm:p-0 max-sm:flex-col'}>
-        <img
+        <Image
           className={'shadow-inner-right rounded-lg h-full w-full max-sm:h-full object-cover grayscale-[10%]'}
           src={`https://image.tmdb.org/t/p/original/${mostPopularMovie.backdrop_path}`}
           alt={mostPopularMovie.title}
+          width={'1200'}
+          height={'1080'}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-1/3" />
         <div className={'absolute w-full bottom-0 left-0 max-sm:px-6 max-sm:py-4 py-20 px-10 flex-grow flex flex-col justify-between'}>

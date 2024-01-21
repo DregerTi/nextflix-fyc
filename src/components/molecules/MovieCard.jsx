@@ -2,6 +2,7 @@
 import Modal from "../organismes/Modal.jsx";
 import {useState} from "react";
 import MoviePreview from "../organismes/MoviePreview.jsx";
+import Image from "next/image";
 
 const MovieCard = ({ posterUrl, title, id, backdrop_path }) => {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +18,7 @@ const MovieCard = ({ posterUrl, title, id, backdrop_path }) => {
   return (
     <>
       <div onClick={openModal} className="cursor-pointer w-60 min-w-60 max-sm:w-40 max-sm:min-w-40 rounded overflow-hidden shadow-sm relative mx-3 hover:shadow-lg hover:ring-1 hover:shadow-blue-300 transition-all duration-700">
-        <img
+        <Image
           className="w-full hover:grayscale-[25%] grayscale-0 transition-all duration-700"
           src={`https://image.tmdb.org/t/p/original/${posterUrl}`}
           alt={title}
