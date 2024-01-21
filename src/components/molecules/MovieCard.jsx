@@ -22,8 +22,9 @@ const MovieCard = ({ posterUrl, title, id, backdrop_path }) => {
           className="w-full hover:grayscale-[25%] grayscale-0 transition-all duration-700"
           src={`https://image.tmdb.org/t/p/original/${posterUrl}`}
           alt={title}
-          width={500}
-          height={50}
+          quality={60}
+          width={160}
+          height={240}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-20" />
         <div className="absolute bottom-0 left-0 p-4 text-white">{title}</div>

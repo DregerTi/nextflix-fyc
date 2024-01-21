@@ -7,9 +7,9 @@ const Footer = () => {
     <footer className="flex items-center justify-between py-3 px-8 pt-20 text-gray-400 w-full">
       <div className="text-sm font-medium">Copyright © 2024 Nextflix</div>
       <div className="flex space-x-4">
-        <Link href="lien_vers_instagram" target="_blank" rel="noopener noreferrer"><AiFillInstagram /></Link>
-        <Link href="lien_vers_twitter" target="_blank" rel="noopener noreferrer"><AiOutlineTwitter /></Link>
-        <Link href="lien_vers_github" target="_blank" rel="noopener noreferrer"><AiOutlineGithub /></Link>
+        <Link href="https://github.com/DregerTi/nextflix-fyc/tree/master" target="_blank" rel="noopener noreferrer" aria-label={'intagram'}><AiFillInstagram /></Link>
+        <Link href="https://github.com/DregerTi/nextflix-fyc/tree/master" target="_blank" rel="noopener noreferrer" aria-label={'twitter'}><AiOutlineTwitter /></Link>
+        <Link href="https://github.com/DregerTi/nextflix-fyc/tree/master" target="_blank" rel="noopener noreferrer" aria-label={'Github'}><AiOutlineGithub /></Link>
       </div>
     </footer>
   );
