@@ -22,8 +22,9 @@ export default async function Home() {
           className={'shadow-inner-right rounded-lg h-full w-full max-sm:h-full object-cover grayscale-[10%]'}
           src={`https://image.tmdb.org/t/p/original/${mostPopularMovie.backdrop_path}`}
           alt={mostPopularMovie.title}
+          quality={60}
           width={'1200'}
-          height={'1080'}
+          height={'600'}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-1/3" />
         <div className={'absolute w-full bottom-0 left-0 max-sm:px-6 max-sm:py-4 py-20 px-10 flex-grow flex flex-col justify-between'}>
