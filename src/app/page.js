@@ -32,6 +32,7 @@ export default async function Home() {
             <div className={'mt-8'}>
               <Button
                 title={'voir plus'}
+                href={`/movie/${mostPopularMovie.id}`}
                 className={'max-sm:!w-full !bg-blue-400 hover:!bg-blue-500'}
                 icon={<AiOutlineExport/>}/>
             </div>
