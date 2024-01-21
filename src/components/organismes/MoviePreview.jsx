@@ -1,11 +1,12 @@
 import React from 'react';
 import {AiOutlineExport} from "react-icons/ai";
 import Button from "../atoms/Button.jsx";
+import Image from "next/image";
 
 const MoviePreview = ({ backdrop_path, title, id }) => {
   return (
     <div className="max-w-6xl w-full rounded overflow-hidden shadow-lg">
-      <img
+      <Image
         className="w-full max-w-full rounded overflow-hidden"
         src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
         alt={title}
